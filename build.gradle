@@ -1,0 +1,24 @@
+apply plugin: 'application'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:+'
+}
+
+version = 1.0
+
+mainClassName = 'me.timtim17.dev.java.apcs.textexcel.TextExcel'
+
+jar {
+    baseName = 'RobotVersioner'
+    version = version
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
