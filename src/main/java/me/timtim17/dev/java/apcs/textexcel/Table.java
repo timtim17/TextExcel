@@ -1,12 +1,17 @@
 package me.timtim17.dev.java.apcs.textexcel;
 
-import me.timtim17.dev.java.apcs.textexcel.cells.Cell;
+import me.timtim17.dev.java.apcs.textexcel.cells.*;
 
-class Table {
+public class Table {
     private Cell<?>[][] cells;
 
     public Table(int rows, int cols) {
         cells = new Cell<?>[rows][cols];
+        for(int i = 0; i < cells.length; i++) {
+            for(int j = 0; j < cells[i].length; j++) {
+                cells[i][j] = new EmptyCell();
+            }
+        }
     }
 
     public Cell<?>[][] getCells() {
