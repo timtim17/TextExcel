@@ -77,6 +77,7 @@ out/
 
 .gradle/
 build/
+!gradle/
 
 ##########################
 # OS Files               #
