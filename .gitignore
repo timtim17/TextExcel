@@ -77,7 +77,7 @@ out/
 
 .gradle/
 build/
-!gradle/
+!gradle/wrapper/gradle-wrapper.jar
 
 ##########################
 # OS Files               #
