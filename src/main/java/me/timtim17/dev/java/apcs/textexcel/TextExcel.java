@@ -15,7 +15,7 @@ public class TextExcel {
     public static void print(Table table) {
         // TODO: Start this.
         // TODO: Add a border to the table.
-        // TODO: Add row and collum headers.
+        // TODO: Add row and column headers.
         Cell<?>[][] cells = table.getCells();
         for (Cell<?>[] row : cells) {
             for (Cell<?> cell : row) {
