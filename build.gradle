@@ -9,6 +9,7 @@ repositories {
 
 dependencies {
     testCompile 'junit:junit:+'
+    compile "org.jetbrains:annotations:+"
 }
 
 version = 1.0

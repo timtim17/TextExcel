@@ -1,5 +1,6 @@
 package me.timtim17.dev.java.apcs.textexcel;
 
+import org.jetbrains.annotations.NotNull;
 import me.timtim17.dev.java.apcs.textexcel.cells.*;
 
 public class Table {
@@ -22,7 +23,7 @@ public class Table {
         return cells[row][col];
     }
 
-    public void setCell(int row, int col, Cell<?> newCell) {
+    public void setCell(int row, int col, @NotNull Cell<?> newCell) {
         cells[row][col] = newCell;
     }
 }

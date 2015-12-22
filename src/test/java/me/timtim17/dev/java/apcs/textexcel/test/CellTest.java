@@ -7,9 +7,15 @@ import static org.junit.Assert.*;
 
 public class CellTest {
     @Test
-    public void testNumberCellGetShortenedContentsNoShorten() {
+    public void testNumberCellGetShortenedContentsShorterThanEight() {
         NumberCell cell = new NumberCell(5F);
-        assertEquals("5.0\t", cell.getShortenedContents());
+        assertEquals("5.0     ", cell.getShortenedContents());
+    }
+
+    @Test
+    public void testNumberCellGetShortenedContentsNoShorten() {
+        NumberCell cell = new NumberCell(5.555555F);
+        assertEquals("5.555555", cell.getShortenedContents());
     }
 
     @Test
@@ -22,6 +28,12 @@ public class CellTest {
     public void testNumberCellGetContents() {
         NumberCell cell = new NumberCell((float) Math.PI);
         assertEquals((float) Math.PI, cell.getContents(), 0F);
+    }
+
+    @Test
+    public void testStringCellGetShortenedContentsShorterThanEight() {
+        StringCell cell = new StringCell("abcdefg");
+        assertEquals("abcdefg ", cell.getShortenedContents());
     }
 
     @Test

@@ -1,6 +1,8 @@
 package me.timtim17.dev.java.apcs.textexcel;
 
+import org.jetbrains.annotations.NotNull;
 import me.timtim17.dev.java.apcs.textexcel.cells.Cell;
+import me.timtim17.dev.java.apcs.textexcel.utility.Utility;
 
 public class TextExcel {
     public static void main(String[] args) throws Exception {
@@ -8,16 +10,23 @@ public class TextExcel {
         print(table);
     }
 
+    @NotNull
     public static Table getNewTable(int rows, int cols) {
         return new Table(rows, cols);
     }
 
-    public static void print(Table table) {
+    public static void print(@NotNull Table table) {
         // TODO: Start this.
         // TODO: Add a border to the table.
-        // TODO: Add row and column headers.
+        // TODO: Add row headers.
         Cell<?>[][] cells = table.getCells();
+        try {
+            System.out.println(Utility.generateHeaders(cells.length));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
         for (Cell<?>[] row : cells) {
+            System.out.print("|");
             for (Cell<?> cell : row) {
                 System.out.print(cell.getShortenedContents());
                 System.out.print("|");  // TODO: Get better ASCII art
