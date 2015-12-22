@@ -1,8 +1,6 @@
 package me.timtim17.dev.java.apcs.textexcel;
 
 import org.jetbrains.annotations.NotNull;
-import me.timtim17.dev.java.apcs.textexcel.cells.Cell;
-import me.timtim17.dev.java.apcs.textexcel.utility.Utility;
 
 import java.util.Scanner;
 
@@ -38,5 +36,10 @@ public class TextExcel {
             String command = console.nextLine();
             // TODO: Do Something With This
         }
+    }
+
+    @Deprecated
+    public static void print(@NotNull Table table) {
+        table.print();
     }
 }
