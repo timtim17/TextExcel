@@ -1,5 +1,7 @@
 package me.timtim17.dev.java.apcs.textexcel;
 
+import me.timtim17.dev.java.apcs.textexcel.cells.Cell;
+
 public class TextExcel {
     public static void main(String[] args) throws Exception {
         Table table = getNewTable(5, 5);
