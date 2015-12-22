@@ -16,7 +16,6 @@ public class TextExcel {
     }
 
     public static void print(@NotNull Table table) {
-        // TODO: Start this.
         // TODO: Add a border to the table.
         // TODO: Add row headers.
         Cell<?>[][] cells = table.getCells();
