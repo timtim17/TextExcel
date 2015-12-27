@@ -9,6 +9,7 @@ repositories {
 
 dependencies {
     testCompile 'junit:junit:+'
+    compile "org.jetbrains:annotations:+"
 }
 
 version = 1.0
@@ -16,7 +17,7 @@ version = 1.0
 mainClassName = 'me.timtim17.dev.java.apcs.textexcel.TextExcel'
 
 jar {
-    baseName = 'RobotVersioner'
+    baseName = 'TextExcel'
     version = version
     manifest {
         attributes 'Main-Class': mainClassName

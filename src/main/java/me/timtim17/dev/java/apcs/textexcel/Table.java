@@ -1,5 +1,7 @@
 package me.timtim17.dev.java.apcs.textexcel;
 
+import me.timtim17.dev.java.apcs.textexcel.utility.Utility;
+import org.jetbrains.annotations.NotNull;
 import me.timtim17.dev.java.apcs.textexcel.cells.*;
 
 public class Table {
@@ -22,7 +24,26 @@ public class Table {
         return cells[row][col];
     }
 
-    public void setCell(int row, int col, Cell<?> newCell) {
+    public void setCell(int row, int col, @NotNull Cell<?> newCell) {
         cells[row][col] = newCell;
+    }
+
+    public void print() {
+        // TODO: Add a border to the table.
+        // TODO: Add row headers.
+        Cell<?>[][] cells = getCells();
+        try {
+            System.out.println(Utility.generateHeaders(cells.length));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+        for (Cell<?>[] row : cells) {
+            System.out.print("|");
+            for (Cell<?> cell : row) {
+                System.out.print(cell.getShortenedContents());
+                System.out.print("|");  // TODO: Get better ASCII art
+            }
+            System.out.println();
+        }
     }
 }
