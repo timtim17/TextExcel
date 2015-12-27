@@ -4,7 +4,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Scanner;
 
-public class TextExcel {public static void main(String[] args) throws Exception {
+public class TextExcel {
+    public static void main(String[] args) throws Exception {
         Table table = getNewTable(5, 5);
         mainLoop(table);
     }
