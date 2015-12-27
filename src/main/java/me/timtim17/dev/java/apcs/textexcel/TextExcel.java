@@ -2,9 +2,14 @@ package me.timtim17.dev.java.apcs.textexcel;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import me.timtim17.dev.java.apcs.textexcel.Commands.*;
+
 public class TextExcel {
+    private static boolean done;
+
     public static void main(String[] args) throws Exception {
         Table table = getNewTable(5, 5);
         mainLoop(table);
@@ -20,9 +25,8 @@ public class TextExcel {
         System.out.println("TextExcel\n");
     }
 
-    private static void printCommands() {
-        System.out.println("print\t→\tPrints the table.");
-        System.out.println("quit\t→\tExits the program.");
+    private static void printCommands(ArrayList<Command> commands) {
+        commands.forEach(Command::printCommandListing);
     }
 
     public static void mainLoop(@NotNull Table table) {
@@ -30,23 +34,20 @@ public class TextExcel {
         table.print();
 
         Scanner console = new Scanner(System.in);
-        boolean done = false;
+        ArrayList<Command> commands = Commands.getCommands(table);
+        done = false;
         while (!done) {
             System.out.println("Please enter a command:");
-            printCommands();
-            String command = console.nextLine();
-            switch (command) {
-                case "print":
-                    table.print();
-                    break;
-                case "quit":
-                    done = true;
-                    break;
-                default:
-                    System.err.println("INVALID COMMAND");
-                    System.out.println();
-                    break;
+            printCommands(commands);
+            String requestedCommand = console.nextLine();
+            boolean foundCommand = false;
+            for (Command command : commands) {
+                if (command.getName().equals(requestedCommand)) {
+                    command.runCommand();
+                    foundCommand = true;
+                }
             }
+            if (!foundCommand) System.err.println("INVALID COMMAND\n");
         }
         System.out.println("Goodbye.");
     }
@@ -54,5 +55,9 @@ public class TextExcel {
     @Deprecated
     public static void print(@NotNull Table table) {
         table.print();
+    }
+
+    public static void quit() {
+        done = true;
     }
 }
