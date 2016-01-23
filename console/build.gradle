@@ -1,0 +1,16 @@
+apply plugin: 'application'
+
+dependencies {
+    compile project(":core")
+    compile project(":utility")
+}
+
+mainClassName = 'me.timtim17.dev.java.apcs.textexcel.TextExcel'
+
+jar {
+    baseName = 'TextExcel'
+    version = version
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
