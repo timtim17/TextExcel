@@ -20,6 +20,7 @@ public class Console {
       // TODO: Run from jar with GUI
       // TODO: Intercept souts
     }
+    Commands.addCommand(new Commands.Command("quit", "Quits the program.", Console::quit));
     Table table = Table.getNewTable(5, 5);
     mainLoop(table);
   }

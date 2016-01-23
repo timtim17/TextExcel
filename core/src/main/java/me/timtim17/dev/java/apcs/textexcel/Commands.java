@@ -1,7 +1,10 @@
 package me.timtim17.dev.java.apcs.textexcel;
 
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 
@@ -13,11 +16,19 @@ public class Commands {
     if (COMMANDS == null) {
       COMMANDS = new ArrayList<>();
       COMMANDS.add(new Command("print", "Prints the table.", table::print));
-      COMMANDS.add(new Command("quit", "Exits the program.", TextExcel::quit));
       COMMANDS.add(new Command("edit"));
       COMMANDS.add(new Command("math"));
     }
     return COMMANDS;
+  }
+
+  protected static void addCommand(@NotNull Command command) {
+    COMMANDS.add(command);
+  }
+
+  @Contract("_ -> fail")
+  protected static void removeCommand(int index) {
+    throw new NotImplementedException();
   }
 
   protected static class Command {
