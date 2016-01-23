@@ -5,10 +5,10 @@ dependencies {
     compile project(":utility")
 }
 
-mainClassName = 'me.timtim17.dev.java.apcs.textexcel.TextExcel'
+mainClassName = 'me.timtim17.dev.java.apcs.textexcel.Console'
 
 jar {
-    baseName = 'TextExcel'
+    baseName = 'TextExcel-Console'
     version = version
     manifest {
         attributes 'Main-Class': mainClassName
