@@ -10,14 +10,18 @@ public class TextExcel {
         boolean done = false;
         while (!done) {
             System.out.print("Enter a command >>> ");
-            String command = in.nextLine().toLowerCase();
-            switch (command) {
-                case "quit":
-                    done = true;
-                    break;
-                default:
-                    System.out.println(spreadsheet.processCommand(command));
+            String command = in.nextLine();
+            String commandLower = command.toLowerCase();
+            if (commandLower.equals("quit")) done = true;
+            else {
+                String output = spreadsheet.processCommand(command);
+                if (output == null) {
                     System.err.println("Invalid command.");
+                    try {
+                        Thread.sleep(1000); // System.err has a noticeable delay, wait for the output to catch up
+                    } catch (InterruptedException ignored) {}
+                }
+                else System.out.println(output);
             }
         }
     }

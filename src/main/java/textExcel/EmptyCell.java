@@ -1,15 +1,14 @@
 package textExcel;
 
 public class EmptyCell implements Cell {
-    private static final String EMPTY = "";
 
     @Override
     public String abbreviatedCellText() {
-        return EMPTY;
+        return "          ";    // 10 spaces - the size of a cell
     }
 
     @Override
     public String fullCellText() {
-        return EMPTY;
+        return "";
     }
 }

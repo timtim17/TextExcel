@@ -5,20 +5,14 @@ public class SpreadsheetLocation implements Location {
     private final int row;
     private final int col;
 
-    public SpreadsheetLocation(String location) {
-        // this isn't really necessary, but in case there's a location that has multiple letters,
-        // loop through the location until we run into a non-string char
-        StringBuilder sb = new StringBuilder();
-        int index = 0;
-        char c = location.charAt(index);
-        // there's at least one char that's a letter
-        while (Character.isLetter(c)) {
-            sb.append(c);
-            c = location.charAt(++index);
-        }
-        String letters = sb.toString().toLowerCase();
-        col = (letters.length() - 1) * 26 + ALPHABET.indexOf(letters.charAt(letters.length() - 1));
-        row = Integer.valueOf(location.substring(index)) - 1;
+    public SpreadsheetLocation(String location) throws IllegalArgumentException {
+        if (!Character.isLetter(location.charAt(0)))
+            throw new IllegalArgumentException("Location is not a valid cell location.");
+        col = ALPHABET.indexOf(String.valueOf(location.charAt(0)).toLowerCase());   // conversion to string is needed
+                                                                                    // because subtracting to the char
+                                                                                    // wouldn't work if the char is
+                                                                                    // already lowercase
+        row = Integer.valueOf(location.substring(1)) - 1;
     }
 
     @Override
