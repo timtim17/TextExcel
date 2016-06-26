@@ -1,4 +1,0 @@
-dependencies {
-    testCompile 'junit:junit:+'
-    compile project(":utility")
-}
