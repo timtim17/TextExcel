@@ -15,7 +15,7 @@ public class TextExcel {
             if (commandLower.equals("quit")) done = true;
             else {
                 String output = spreadsheet.processCommand(command);
-                if (output == null) {
+                if (output.equals("ERROR")) {
                     System.err.println("Invalid command.");
                     try {
                         Thread.sleep(1000); // System.err has a noticeable delay, wait for the output to catch up

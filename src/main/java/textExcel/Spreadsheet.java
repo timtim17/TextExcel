@@ -42,7 +42,7 @@ public class Spreadsheet implements Grid {
                     try {
                         return getCell(new SpreadsheetLocation(command)).fullCellText();
                     } catch (Exception ignored) {
-                        return null;
+                        return "ERROR";
                     }
             }
         } else if (num_words == 2 && split[0].toLowerCase().equals("clear")) {
@@ -55,7 +55,7 @@ public class Spreadsheet implements Grid {
                 String content = String.join(" ", Arrays.copyOfRange(split, 2, split.length));
                 grid[location.getRow()][location.getCol()] = new StringCell(content.substring(1, content.length() - 1));
             } catch (Exception e) {
-                return null;
+                return "ERROR";
             }
             return "";
         }
